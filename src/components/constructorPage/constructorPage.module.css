@@ -1,0 +1,20 @@
+.content {
+    composes: box from '../../index.css' ;
+    display: flex;
+    column-gap: 40px;
+    align-items: flex-start;
+}
+
+.burgerBox {
+    width: 50%;
+}
+
+@media(max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .burgerBox {
+        width: 100%;
+    }
+}

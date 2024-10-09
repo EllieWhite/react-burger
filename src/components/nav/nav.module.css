@@ -1,0 +1,56 @@
+.nav {
+    composes: box from '../../index.css' ;
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1320px;
+}
+
+.logoWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav a:last-child {
+    margin-left: auto;
+}
+
+
+@media(max-width: 1200px) {    
+    .logoWrapper {
+        order: -1;
+        margin-right: 15px;
+        position: static;
+        transform: none;
+    }
+}
+
+@media(max-width: 1024px) {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logoWrapper {
+        width: 100%;
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav a:last-child {
+        margin-left: 0;
+    }
+
+    .nav > svg {
+        width: 250px;
+    }
+}
+
+@media(max-width: 700px) {
+    .nav {
+        align-items: center;
+        flex-direction: column;
+    }
+}

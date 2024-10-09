@@ -1,0 +1,18 @@
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 112px;
+}
+
+.infoGroup {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}

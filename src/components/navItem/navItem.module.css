@@ -1,0 +1,7 @@
+.navItem {
+    display: flex;
+    align-items: center;
+    color: var(--color-2);
+    text-decoration: none;
+    white-space: nowrap;
+}

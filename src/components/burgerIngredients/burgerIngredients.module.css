@@ -1,0 +1,21 @@
+.burgerList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 24px;
+}
+
+.wrapper {
+    composes: scroll-wrap from '../../index.css' ;
+}
+
+.tabGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media(max-width: 1024px) {
+    .burgerList {
+        gap: 20px 12px;
+    }
+}
