@@ -1,0 +1,29 @@
+.constructorElement {
+    background-color: var(--color-1);
+} 
+
+.constructorList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    composes: scroll-wrap from '../../index.css' ;
+
+}
+
+.burgerConstructorBox {
+    margin-bottom: 52px;
+    width: 50%;
+}
+
+.burgerTotalBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 40px;
+}
+
+@media(max-width: 1024px) {
+    .burgerConstructorBox {
+        width: 100%;
+    }
+}
