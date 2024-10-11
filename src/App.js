@@ -4,10 +4,8 @@ import BurgerConstructor from './components/burgerConstructor/burgerConstructor'
 import stylesConstructorPage from './components/constructorPage/constructorPage.module.css';
 import stylesBurgerConstructor from './components/burgerConstructor/burgerConstructor.module.css'; 
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Total from './components/total/total';
 import { Button } from '@ya.praktikum/react-developer-burger-ui-components';
-import ModalOverlay from './components/modalOverlay/modalOverlay';
 import Modal from './components/modal/modal';
 import OrderDetails from './components/orderDetails/orderDetails';
 
@@ -66,23 +64,17 @@ function App() {
           </div>
         </div>
       </main>
-      <ModalOverlay isOpen={showModal} onClose={closeModal}>
-        <Modal onClick={closeModal} moreClasses={`pt-30 pb-30`}>
+      {showModal && (
+        <Modal
+          onClick={closeModal}
+          isOpen={showModal}
+          onClose={closeModal}
+          moreClasses={`pt-30 pb-30`}>
           <OrderDetails />
         </Modal>
-      </ModalOverlay>
+      )}
     </div>
   );
 }
-
-BurgerConstructor.propTypes = {
-  ingredients: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.string,
-    type: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number,
-    image: PropTypes.string
-  })).isRequired
-};
 
 export default App;

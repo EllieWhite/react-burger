@@ -1,13 +1,36 @@
 .constructorElement {
     background-color: var(--color-1);
+    cursor: pointer;
 } 
+
+.first {
+    border-radius: 88px 88px 40px 40px;
+}
+
+.last {
+    border-radius: 40px 40px 88px 88px;
+}
 
 .constructorList {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    composes: scroll-wrap from '../../index.css' ;
+}
 
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.dragIcon {
+    flex-shrink: 0;
+}
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    composes: scroll-wrap from '../../index.css' ;
+    height: calc(85vh - 160px - 80px);
 }
 
 .burgerConstructorBox {

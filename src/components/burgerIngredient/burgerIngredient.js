@@ -1,10 +1,9 @@
 import styles from './burgerIngredient.module.css';
 import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
-import ModalOverlay from '../modalOverlay/modalOverlay';
 import Modal from '../modal/modal';
 import IngredientDetails from '../ingredientDetails/ingredientDetails';
+import { ingredientType } from '../../utils/types'; 
 
 const BurgerIngredient = ({ ingredient }) => {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +18,7 @@ const BurgerIngredient = ({ ingredient }) => {
 
   return (
     <>
-      <button className={styles.item} key={ingredient._id} onClick={handleIngredientClick}>
+      <button className={styles.item} onClick={handleIngredientClick}>
         {ingredient._id === '60666c42cc7b410027a1a9b1' ||
         ingredient._id === '60666c42cc7b410027a1a9b9' ? (
           <Counter count={1} size="default" extraClass="m-1" />
@@ -40,34 +39,29 @@ const BurgerIngredient = ({ ingredient }) => {
         </p>
       </button>
 
-      <ModalOverlay isOpen={showModal} onClose={closeModal}>
-        <Modal onClick={closeModal}>
-            <IngredientDetails
-                name={ingredient.name}
-                image={ingredient.image_large}
-                alt={ingredient.name}
-                calories={ingredient.calories}
-                proteins={ingredient.proteins}
-                fat={ingredient.fat}
-                carbohydrates={ingredient.carbohydrates}
-            />
+      {showModal && (
+        <Modal
+          onClick={closeModal}
+          isOpen={showModal}
+          onClose={closeModal}
+        >
+          <IngredientDetails
+            name={ingredient.name}
+            image={ingredient.image_large}
+            alt={ingredient.name}
+            calories={ingredient.calories}
+            proteins={ingredient.proteins}
+            fat={ingredient.fat}
+            carbohydrates={ingredient.carbohydrates}
+          />
         </Modal>
-      </ModalOverlay>
+      )}
     </>
   );
 };
 
 BurgerIngredient.propTypes = {
-  ingredient: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    type: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    image_large: PropTypes.string,
-    price: PropTypes.number,
-  }).isRequired,
+  ingredient: ingredientType.isRequired
 };
 
-
 export default BurgerIngredient;
-
